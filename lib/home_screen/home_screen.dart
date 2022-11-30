@@ -71,6 +71,7 @@ class _TopPart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Duration elapsed = DateTime.now().difference(birthday);
+    final theme = Theme.of(context);
 
     return Expanded(
       child: Column(
@@ -79,23 +80,18 @@ class _TopPart extends StatelessWidget {
         children: [
           Text(
             'BirthDay',
-            style: TextStyle(
-              fontFamily: "NanumGothic",
-              fontSize: 50,
-            ),
+            style: theme.textTheme.headline1,
           ),
           Column(
             children: [
-              Text('내 생일',
-                  style: TextStyle(
-                    fontFamily: "NanumGothic",
-                    fontSize: 30,
-                  )),
-              Text('${birthday.year}.${birthday.month}.${birthday.day}',
-                  style: TextStyle(
-                    fontFamily: 'NanumGothic',
-                    fontSize: 20,
-                  )),
+              Text(
+                '내 생일',
+                style: theme.textTheme.bodyText1,
+              ),
+              Text(
+                '${birthday.year}.${birthday.month}.${birthday.day}',
+                style: theme.textTheme.bodyText2,
+              ),
             ],
           ),
           IconButton(
@@ -107,10 +103,7 @@ class _TopPart extends StatelessWidget {
           ),
           Text(
             'D+${elapsed.inDays}',
-            style: TextStyle(
-                fontFamily: 'NanumGothic',
-                fontSize: 50,
-                fontWeight: FontWeight.bold),
+            style: theme.textTheme.headline2,
           ),
         ],
       ),
